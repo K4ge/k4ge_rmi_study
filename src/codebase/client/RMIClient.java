@@ -3,12 +3,10 @@ import java.rmi.Naming;
 import java.rmi.Remote;
 import java.util.List;
 import java.util.ArrayList;
-import codebase.server.ICalc;   //接口包名必须相同
-import java.io.Serializable;    //传输对象参数必须序列化
+import codebase.server.ICalc;
+import java.io.Serializable;
 
 public class RMIClient implements Serializable{
-    //声明个Payload类，我们的恶意代码可以写在这
-    public class Payload extends ArrayList<Integer> {}
 
     public void lookup() throws Exception {
         //远程获取Calc类
@@ -26,7 +24,6 @@ public class RMIClient implements Serializable{
 
     }
 
-    //用于测试，获取registry方法集合
     public void list() throws Exception {
         String[] ss = Naming.list("rmi://127.0.0.1:1099/");
         for(String s : ss) {
