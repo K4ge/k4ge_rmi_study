@@ -25,6 +25,7 @@ public class RMIClient implements Serializable{
     }
 
     public void list() throws Exception {
+        //Naming的list方法可以列出registry所有的方法
         String[] ss = Naming.list("rmi://127.0.0.1:1099/");
         for(String s : ss) {
             System.out.println(s);
